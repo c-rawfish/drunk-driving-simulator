@@ -1,6 +1,13 @@
 #pragma once
+#include "raylib.h"
 
-void init_player(const int SCREEN_WIDTH, const int START_Y);
-void update_player();
-void draw_player();
-Rectangle get_player_rec();
+struct player {
+	Rectangle player_rec{};
+	Color player_color{};
+	Vector2 player_pos{};
+	Vector2 player_bounds{};
+	int player_speed;
+
+	player(float width, float height, Color color, float start_y, int screen_width, int speed);
+	void update_player();
+};

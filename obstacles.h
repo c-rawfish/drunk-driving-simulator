@@ -1,6 +1,20 @@
 #pragma once
 #include "raylib.h"
+#include <vector>
 
-void init_obstacles(const int MIN_OBSTACLES, const int MAX_OBSTACLES, const int SCREEN_WIDTH, const int SCREEN_HEIGHT);
-void deinit_obstacles();
-bool update_obstacles(Rectangle player); // returns if an obstacle has collided with the player
+class obstacle_handler {
+public:
+	obstacle_handler(const int display_width, float height, Color color, int speed, int count, const int display_height, Rectangle& player);
+	bool update_obstacles();
+private:
+	void reset_obstacles();
+
+	Rectangle obstacle_rec{};
+	Rectangle& player_rec;
+	Color obstacle_color{};
+	int obstacle_speed{};
+	int screen_height{};
+	float obstacle_width{};
+	std::vector<bool> obstacles{}; // apparently a vector of bool will just use bits, saving memory
+	// idk if thats right tho
+};
