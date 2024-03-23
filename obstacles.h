@@ -14,7 +14,5 @@ private:
 	Color obstacle_color{};
 	int obstacle_speed{};
 	int screen_height{};
-	float obstacle_width{};
-	std::vector<bool> obstacles{}; // apparently a vector of bool will just use bits, saving memory
-	// idk if thats right tho
+	std::vector<bool> obstacles{};
 };
